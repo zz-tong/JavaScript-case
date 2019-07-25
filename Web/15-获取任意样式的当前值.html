@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 50px;
+    }
+    .box {
+      border: 10px solid #000;
+      padding: 10px;
+      width: 200px;
+      background-color: red;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+<script>
+/*
+  get  - 获取
+  Computed - 计算过后的 - css里面有层叠性，继承性，优先级，会导致一个元素身上，同一个属性，可能有多个选择器起效果,但是最终只有一个能够影响。最终的，被影响的，就叫计算过后的
+  Style - 样式
+
+  如果就是想得到内容的宽度
+    js里面没有提供一个专门用于获取width或者是height的属性
+    但是提供了一个可以获取任意样式的方法
+
+      window.getComputedStyle(element)
+        作用： 获取某个元素的任意样式
+        参数： 要获取样式的元素
+        返回值： 是一个 css属性的集合 - 对象
+
+      然后从这个对象里面直接点出你想要的属性的值即可
+*/
+
+let box = document.querySelector('.box');
+let cssResult = window.getComputedStyle(box);
+console.log(cssResult);
+console.log(cssResult.height);
+console.log(cssResult.backgroundColor);
+</script>
+</html>

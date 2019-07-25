@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      transition: all 2s;
+    }
+    div:hover {
+      /* transform: translate(400px); */
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+</body>
+<script>
+/*
+  动画结束事件：
+    指的是cs3里面的动画的结束
+      c3动画
+        过渡动画
+          transition
+        帧动画
+          animation
+          @keyframes 动画名称{
+            0% {}
+            10% {}
+            100% {}
+          }
+        
+        keyframes - 关键帧
+
+  动画的结束事件也有会有两个
+      过渡结束事件
+          transitionend
+      帧动画结束
+          animationend
+
+    注意： 这两个事件都不能使用on的方式注册，只能使用addEventListener的方式注册
+*/
+let box = document.querySelector('#box');
+// box.ontransitionend = function(){
+//   console.log('动画结束了'); 
+// }
+
+box.addEventListener('transitionend',function(){
+  console.log(123);
+})
+</script>
+</html>
